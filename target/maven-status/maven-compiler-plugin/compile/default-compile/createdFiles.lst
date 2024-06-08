@@ -1,2 +1,7 @@
-me\flexicraft\FlexiCraft.class
+me\flexicraft\commands\FlexiRoot.class
+me\flexicraft\commands\Ban.class
 me\flexicraft\listeners\JoinLeaveListener.class
+me\flexicraft\commands\Fly.class
+me\flexicraft\FlexiCraft.class
+me\flexicraft\util\FlexiCraftTabCompleter.class
+me\flexicraft\commands\Unban.class

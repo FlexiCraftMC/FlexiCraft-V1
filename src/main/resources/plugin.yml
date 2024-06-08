@@ -3,3 +3,24 @@ version: '${project.version}'
 main: me.flexicraft.FlexiCraft
 author: OlliesWorld
 api-version: '1.20'
+description: '${project.description}'
+commands:
+  ban:
+    description: Ban a player from the server.
+    usage: /ban <player> [reason]
+  unban:
+    description: Unban a player from the ban list.
+    usage: /unban <player>
+  fly:
+    description: Fly free like a bird.
+    usage: /fly
+  flexicraft:
+    description: FlexiCraft plugin commands.
+    usage: /flexicraft <subcommand> [arguments]
+    subcommands:
+      reload:
+        description: Reload the config file.
+        usage: /flexicraft reload
+      help:
+        description: Give help for the commands.
+        usage: /flexicraft help
