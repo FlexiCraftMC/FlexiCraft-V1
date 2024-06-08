@@ -1,0 +1,5 @@
+name: FlexiCraft
+version: '${project.version}'
+main: me.flexicraft.FlexiCraft
+author: OlliesWorld
+api-version: '1.20'

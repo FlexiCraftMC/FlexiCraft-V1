@@ -1,0 +1,5 @@
+name: FlexiCraft
+version: '1.0'
+main: me.flexicraft.FlexiCraft
+author: OlliesWorld
+api-version: '1.20'
