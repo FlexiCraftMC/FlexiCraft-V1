@@ -41,3 +41,9 @@ other-off-message: '&eFlexi&6Craft &7>> &7You have &cdisabled &7fly for %other_p
 no-other-permission-message: '&eFlexi&6Craft &7>> &cYou have no permissions to make others fly!'
 no-permission-message: '&eFlexi&6Craft &7>> &cYou have no permissions to fly!'
 player-not-found: '&eFlexi&6Craft &7>> &cPlayer not found!'
+
+# Clear messages
+clear-message: '&eFlexi&6Craft &7>> Your inventory has been cleared.'
+clear-other-message: '&eFlexi&6Craft &7>> %target-player% inventory has been cleared.'
+clear-no-perms: '&eFlexi&6Craft &7>> &cYou have no permissions to clear your inventory!'
+clear-player-not-found: '&eFlexi&6Craft &7>> &cPlayer %target-player% not found!'

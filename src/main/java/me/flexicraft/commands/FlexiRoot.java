@@ -5,8 +5,11 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.PluginCommand;
+import org.bukkit.command.PluginCommandYamlParser;
 import org.bukkit.entity.Player;
 
+import java.util.List;
 public class FlexiRoot implements CommandExecutor {
 
     private final FlexiCraft plugin;
@@ -40,18 +43,23 @@ public class FlexiRoot implements CommandExecutor {
 
 
         // Display help information when no arguments or "help" are provided
-        sender.sendMessage(ChatColor.GREEN + "======= " + ChatColor.GOLD + "FlexiCraft Help" + ChatColor.GREEN + " =======");
-        sender.sendMessage(ChatColor.YELLOW + "/flexicraft reload" + ChatColor.GRAY + " - Reload the config file.");
-        sender.sendMessage(ChatColor.YELLOW + "/ban <player> [reason]" + ChatColor.GRAY + " - Ban a player from the server.");
-        sender.sendMessage(ChatColor.YELLOW + "/unban <player>" + ChatColor.GRAY + " - Unban a player from the ban list.");
-        sender.sendMessage(ChatColor.YELLOW + "/kick <player> [reason]" + ChatColor.GRAY + " - Kick a player from the server.");
-        sender.sendMessage(ChatColor.YELLOW + "/mute <player>" + ChatColor.GRAY + " - Mute a player from the chat.");
-        sender.sendMessage(ChatColor.YELLOW + "/unmute <player>" + ChatColor.GRAY + " - Unmute a mob in the chat.");
-        sender.sendMessage(ChatColor.YELLOW + "/fly <player>" + ChatColor.GRAY + " - Toggle fly mode for yourself.");
-        sender.sendMessage(ChatColor.YELLOW + "/clear <player>" + ChatColor.GRAY + " - Clear your inventory.");
-        sender.sendMessage(ChatColor.YELLOW + "/repair" + ChatColor.GRAY + " - Repair an item that is broken.");
-        return true;
+        StringBuilder helpMessage = new StringBuilder(ChatColor.GREEN + "====== " + ChatColor.GOLD + "FlexiCraft Help" + ChatColor.GREEN + " ======\n");
 
+        List<Command> commands = PluginCommandYamlParser.parse(plugin);
+        for (Command cmd : commands) {
+            if (!(cmd instanceof PluginCommand)) continue;
+            PluginCommand pluginCommand = (PluginCommand) cmd;
+            if (pluginCommand.getPlugin() != plugin) continue; // Only show commands of this plugin
+
+            String permission = pluginCommand.getPermission();
+            if (permission == null || sender.hasPermission(permission)) {
+                String description = pluginCommand.getDescription();
+                helpMessage.append(String.format("§e%s §7- %s\n", pluginCommand.getUsage(), description));
+            }
+        }
+
+        sender.sendMessage(helpMessage.toString());
+        return true;
     }
 }
 

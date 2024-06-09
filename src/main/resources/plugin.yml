@@ -5,22 +5,43 @@ author: OlliesWorld
 api-version: '1.20'
 description: '${project.description}'
 commands:
-  ban:
-    description: Ban a player from the server.
-    usage: /ban <player> [reason]
-  unban:
-    description: Unban a player from the ban list.
-    usage: /unban <player>
-  fly:
-    description: Fly free like a bird.
-    usage: /fly
   flexicraft:
     description: FlexiCraft plugin commands.
     usage: /flexicraft <subcommand> [arguments]
-    subcommands:
-      reload:
-        description: Reload the config file.
-        usage: /flexicraft reload
-      help:
-        description: Give help for the commands.
-        usage: /flexicraft help
+  subcommands:
+    reload:
+      description: Reload the config file.
+      usage: /flexicraft reload
+      permission: flexicraft.reload
+    help:
+      description: Give help for the commands.
+      usage: /flexicraft help
+    information:
+      description: Information of the plugin
+      usage: /flexicraft information
+  flexicraft help:
+    description: Give help for the commands.
+    usage: /flexicraft help
+  flexicraft information:
+    description: Information of the plugin
+    usage: /flexicraft information
+  flexicraft reload:
+    description: Reload the config file.
+    usage: /flexicraft reload
+    permission: flexicraft.reload
+  ban:
+    description: Ban a player from the server.
+    usage: /ban <player> [reason]
+    permission: flexicraft.ban
+  unban:
+    description: Unban a player from the ban list.
+    usage: /unban <player>
+    permission: flexicraft.unban
+  fly:
+    description: Fly free like a bird.
+    usage: /fly
+    permission: flexicraft.fly
+  clear:
+    description: Clear your entire inventory
+    usage: /clear
+    permission: flexicraft.clear

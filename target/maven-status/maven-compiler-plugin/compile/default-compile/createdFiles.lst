@@ -1,4 +1,5 @@
 me\flexicraft\commands\FlexiRoot.class
+me\flexicraft\commands\Clear.class
 me\flexicraft\commands\Ban.class
 me\flexicraft\listeners\JoinLeaveListener.class
 me\flexicraft\commands\Fly.class

@@ -49,7 +49,7 @@ public class FlexiCraftTabCompleter implements TabCompleter {
             case "mute":
                 return sender.hasPermission("flexicraft.mute");
             case "help":
-                return true; // Assume help is available to all
+                return true;
             case "information":
                 return true;
             default:
